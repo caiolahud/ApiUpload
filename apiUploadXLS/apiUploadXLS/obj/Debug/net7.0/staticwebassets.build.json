@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fGtKI5uixxLcNpCORPw6SuBUQ/YHN7KGYhVES05pG1g=",
+  "Source": "apiUploadXLS",
+  "BasePath": "_content/apiUploadXLS",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
