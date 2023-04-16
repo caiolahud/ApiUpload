@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bNf1Z0dSr/WAJWr+5yfqYl8GvZN8DHm5cchwA/lQoM/5YSZc2epo+P7X7aJbAhxFtI2AaX01+0+ZiVTOYEp5Mw==",
+  "dgSpecHash": "QfSLqUOYR4ogveRv3Y06oC3J2VwXBMfc/yHpanMuzX/WIxGT3V1b522KcdYzdZlmEIVsEpKy8fm3Z1/ogAfr1A==",
   "success": true,
-  "projectFilePath": "D:\\camperoSST\\apiUpload\\apiUploadXLS\\apiUploadXLS\\apiUploadXLS.csproj",
+  "projectFilePath": "C:\\apiUpload\\ApiUpload\\apiUploadXLS\\apiUploadXLS\\apiUploadXLS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caiov\\.nuget\\packages\\enums.net\\4.0.0\\enums.net.4.0.0.nupkg.sha512",
     "C:\\Users\\caiov\\.nuget\\packages\\epplus\\6.2.1\\epplus.6.2.1.nupkg.sha512",
