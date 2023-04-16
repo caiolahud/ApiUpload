@@ -169,3 +169,4 @@ C:\apiUpload\ApiUpload\apiUploadXLS\apiUploadXLS\obj\Debug\net7.0\refint\apiUplo
 C:\apiUpload\ApiUpload\apiUploadXLS\apiUploadXLS\obj\Debug\net7.0\apiUploadXLS.pdb
 C:\apiUpload\ApiUpload\apiUploadXLS\apiUploadXLS\obj\Debug\net7.0\apiUploadXLS.genruntimeconfig.cache
 C:\apiUpload\ApiUpload\apiUploadXLS\apiUploadXLS\obj\Debug\net7.0\ref\apiUploadXLS.dll
+C:\apiUpload\ApiUpload\apiUploadXLS\apiUploadXLS\bin\Debug\net7.0\Newtonsoft.Json.dll

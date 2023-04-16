@@ -1,53 +1,40 @@
-﻿using apiUploadXLS.Models;
-using apiUploadXLS.Service;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.WebUtilities;
-using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel;
-using NPOI.XSSF.UserModel;
-using OfficeOpenXml;
-using System.Net.Http.Headers;
-using System.Net.Http;
-using System.Text;
-using Newtonsoft.Json;
-using System.Net;
+﻿using apiUploadXLS.Service;
 using apiUploadXLS.Util;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
+using System.Net;
 
 namespace apiUploadXLS.Controllers
 {
-
-    [Route("api/cargo/")]
+    [Route("api/demissao/")]
     [ApiController]
-    public class CargoController : ControllerBase
+    public class DemissaoController : ControllerBase
     {
-                
+
         private readonly IWebHostEnvironment _environment;
 
-        public CargoController(IWebHostEnvironment environment)
+        public DemissaoController(IWebHostEnvironment environment)
         {
             _environment = environment;
         }
-               
 
         [HttpPost("upload")]
         public IActionResult UploadArquivo(IFormFile file)
         {
             try
-            {  
+            {
                 //recuperar a extensão do arquivo
                 string extensao = Path.GetExtension(file.FileName);
-               
+
                 if (string.IsNullOrEmpty(extensao) || !extensao.Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
                 {
                     return BadRequest("O arquivo deve estar na extensão .xlsx");
                 }
 
-                var streamFile =  new LeituraStreamService(file).LeituraStream();
+                var streamFile = new LeituraStreamService(file).LeituraStream();
 
-                var cargos =  new LeituraCargoService(streamFile).LeituraXLS();
+                var demissoes = new LeituraCargoService(streamFile).LeituraXLS();
 
                 var headerAutenticacao = GerarSenhaService.GerarSenha();
 
@@ -57,11 +44,11 @@ namespace apiUploadXLS.Controllers
 
                     HttpResponseMessage? response = null;
 
-                    foreach (var cargo in cargos)
+                    foreach (var demissao in demissoes)
                     {
-                        var conteudo = ConvertToJson.Tojson(cargo);
+                        var conteudo = ConvertToJson.Tojson(demissao);
 
-                        response = httpClient.PostAsJsonAsync("https://app.sgg.net.br/api/v3/cargo/", conteudo).Result;
+                        response = httpClient.PostAsJsonAsync("https://app.sgg.net.br/api/v3/demissao/", conteudo).Result;
 
                         var retorno = response.Content.ReadAsStringAsync().Result;
                     }
@@ -82,15 +69,22 @@ namespace apiUploadXLS.Controllers
                         //Caso a API retorne outro status
                         return StatusCode((int)response.StatusCode, response.ReasonPhrase);
                     }
-                }                              
+                }
             }
             catch (Exception ex)
             {
 
                 return BadRequest(ex.Message);
             }
-                       
+
         }
-                
+
+
+
+
+
+
+
+
     }
 }

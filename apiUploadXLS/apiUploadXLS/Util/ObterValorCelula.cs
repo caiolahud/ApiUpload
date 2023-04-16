@@ -1,11 +1,11 @@
 ﻿using OfficeOpenXml;
 
-namespace apiUploadXLS.Service
+namespace apiUploadXLS.Util
 {
     public class ObterValorCelula
     {
         private readonly ExcelWorksheet _excelWorksheet;
-    
+
         public ObterValorCelula(ExcelWorksheet excelWorksheet)
         {
             _excelWorksheet = excelWorksheet;
